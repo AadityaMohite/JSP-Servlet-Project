@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register Page</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #ff9966, #ff5e62);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .register-box {
+        background: white;
+        padding: 30px;
+        width: 350px;
+        border-radius: 12px;
+        box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 12px;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    .gender-box {
+        margin-top: 8px;
+    }
+
+    .gender-box input {
+        width: auto;
+        margin-right: 5px;
+    }
+
+    .btn {
+        width: 100%;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #ff5e62;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #e0484d;
+    }
+
+    .login-link {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    .login-link a {
+        text-decoration: none;
+        color: #ff5e62;
+        font-weight: bold;
+    }
+
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="register-box">
+    <h2>Register</h2>
+
+    <form action="do-RegistrationServlet" method="post">
+
+        <label>Name:</label>
+        <input type="text" name="name" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <label>Gender:</label>
+        <div class="gender-box">
+            <input type="radio" name="gender" value="Male" required> Male
+            <input type="radio" name="gender" value="Female"> Female
+        </div>
+
+        <label>City:</label>
+        <select name="city" required>
+            <option value="">-- Select City --</option>
+            <option>Mumbai</option>
+            <option>Pune</option>
+            <option>Chennai</option>
+        </select>
+
+        <input type="submit" value="Register" class="btn">
+
+        <div class="login-link">
+            Already have an account?
+            <a href="Login.html">Login</a>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>

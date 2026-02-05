@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #36d1dc, #5b86e5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .login-box {
+        background: white;
+        padding: 30px;
+        width: 320px;
+        border-radius: 12px;
+        box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .login-box h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 15px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        outline: none;
+    }
+
+    input:focus {
+        border-color: #5b86e5;
+    }
+
+    .btn {
+        width: 100%;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #5b86e5;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #3a5fcd;
+    }
+
+    .extra {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    .extra a {
+        text-decoration: none;
+        color: #5b86e5;
+    }
+
+    .extra a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+    <h2>Login</h2>
+
+    <form action="#" method="post">
+        
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <input type="submit" value="Login" class="btn">
+
+        <div class="extra">
+            <p>Don't have an account? <a href="Register.html">Register</a></p>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
