@@ -87,8 +87,8 @@
 <div class="login-box">
     <h2>Login</h2>
 
-    <form action="#" method="post">
-        
+    <form action="LoginServlet" method="post">
+        <h2 style="color:red;">${msg}</h2>
         <label>Email:</label>
         <input type="email" name="email" required>
 

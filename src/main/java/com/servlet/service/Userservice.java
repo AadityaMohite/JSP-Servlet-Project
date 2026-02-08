@@ -14,6 +14,13 @@ public class Userservice {
 		        return msg;
 	   }
 	
-	
+	public boolean loginUser(String email, String password) {
+		
+	    boolean msg = dao.loginUser(email, password);
+	    
+	    return msg;
+		
+		
+	}
 	
 }

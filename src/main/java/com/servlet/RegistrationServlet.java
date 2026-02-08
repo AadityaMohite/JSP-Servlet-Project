@@ -30,8 +30,10 @@ public class RegistrationServlet extends HttpServlet {
 		   
 		      String msg = service.saveUser(user);
 		      
-		      response.getWriter().println(msg);
-		
+		      
+		      request.setAttribute("message", msg);
+		      
+		     request.getRequestDispatcher("/Register.jsp").include(request, response);
 		
 		
 	}

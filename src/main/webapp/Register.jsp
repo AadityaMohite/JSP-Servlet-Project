@@ -88,6 +88,7 @@
 <body>
 
 <div class="register-box">
+<h3 style='color:green;'>${message}</h3>
     <h2>Register</h2>
 
     <form action="do-RegistrationServlet" method="post">

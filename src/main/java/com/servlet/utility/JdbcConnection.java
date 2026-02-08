@@ -16,7 +16,7 @@ public class JdbcConnection {
     	        	           Class.forName("com.mysql.cj.jdbc.Driver");
     	        	           con = DriverManager.getConnection(url,username,password);
     	        	           
-    	        	           System.out.println("Connection is successfully");
+    	        	           
     	        	           
     	        	           
     	        	           
