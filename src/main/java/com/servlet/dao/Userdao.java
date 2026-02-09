@@ -3,6 +3,8 @@ package com.servlet.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.servlet.entity.User;
 import com.servlet.utility.JdbcConnection;
@@ -36,35 +38,59 @@ public class Userdao {
 			
 		}
 		
-		public boolean loginUser(String email,String password) {
+		public ResultSet loginUser(String email,String password) {
 			
 			
 			PreparedStatement ps = null;
+			ResultSet rs = null;
 			
 			try {
-				ps = con.prepareStatement("select email , password from user where email=? and password=?; ");
+				ps = con.prepareStatement("select * from user where email=? and password=?; ");
 				ps.setString(1, email);
 				ps.setString(2, password);
 				
-				ResultSet rs = ps.executeQuery();
+				rs = ps.executeQuery();
 				
-				if(rs.next()) {
+			}catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
+		
+			
+			
+		return rs;
+			
+			
+			
+			
+		}
+		
+		
+		public ArrayList<User> getallUsers() {
+			ResultSet rs = null;
+			ArrayList<User> users = new ArrayList<User>();
+			try {
+				Statement stm = con.createStatement();
+			 rs =stm.executeQuery("Select * from user;");
+				while(rs.next()) {
 					
-					return true;
+					String name = rs.getString("name");
+					String email = rs.getString("email");
+					String password = rs.getString("password");
+					String gender = rs.getString("gender");
+					String city = rs.getString("city");
 					
-				}else {
-				
-				return false;
+					User user = new User(name,email,password,gender,city);
+					users.add(user);
+					
 				}
+			 
+				
+				
 			}catch(Exception e) {
 				System.out.println(e.getMessage());
 			}
 			
-			
-			return false;
-		
-			
-			
+			return users;
 			
 			
 		}

@@ -6,7 +6,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import com.servlet.entity.User;
 import com.servlet.service.Userservice;
 
 
@@ -17,22 +20,40 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		  String email = req.getParameter("email");
 		  String password = req.getParameter("password");
-		  String name = req.getParameter("name");
+		 
 		  Userservice service = new Userservice();
 		  
-		  boolean msg = service.loginUser(email, password);
+		  ResultSet rs = service.loginUser(email, password);
+		  
+		       try {
+				if(rs.next()) {
+					   
+					
+					
+					String username = rs.getString("name");
+					String useremail = rs.getString("email");
+					String userpassword = rs.getString("password");
+					String usergender = rs.getString("gender");
+					String usercity = rs.getString("city");
+					
+					User user = new User(username,useremail,userpassword,usergender,usercity);
+					  
+					req.setAttribute("user", user);
+					req.getRequestDispatcher("/Profile.jsp").forward(req, resp);
+					
+					
+				   }else {
+					   System.out.println("Data is empty");
+				   }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		  
 		  
-		  if(msg==true) {
-			  
-			  req.setAttribute("name", name);
-			  req.getRequestDispatcher("/Profile.jsp").forward(req, resp);
-			  	  
-		  }else {
-			  req.setAttribute("msg", "Invalid Credentials are filled! please try again");
-			  req.getRequestDispatcher("/Login.jsp").include(req, resp);
-		  }
-				  
+		  
+		  
+		 
 		  
 		  
 	}

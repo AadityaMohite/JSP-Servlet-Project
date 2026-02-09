@@ -1,5 +1,8 @@
 package com.servlet.service;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 import com.servlet.dao.Userdao;
 import com.servlet.entity.User;
 
@@ -14,12 +17,17 @@ public class Userservice {
 		        return msg;
 	   }
 	
-	public boolean loginUser(String email, String password) {
+	public ResultSet loginUser(String email, String password) {
 		
-	    boolean msg = dao.loginUser(email, password);
-	    
-	    return msg;
+	    ResultSet rs = dao.loginUser(email, password);
+		return rs;
 		
+		
+	}
+	public ArrayList<User> getallUsers(){
+		
+		ArrayList<User> users = dao.getallUsers();
+		return users;
 		
 	}
 	

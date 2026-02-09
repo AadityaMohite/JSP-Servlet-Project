@@ -5,14 +5,52 @@
 <title>Register Page</title>
 
 <style>
-    body {
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
         font-family: Arial, sans-serif;
+    }
+
+    body {
         background: linear-gradient(to right, #ff9966, #ff5e62);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
+        min-height: 100vh;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    .navbar{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px 50px;
+        background:white;
+        box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo{
+        font-size:22px;
+        font-weight:bold;
+        color:#ff5e62;
+    }
+
+    .nav-links a{
+        text-decoration:none;
+        margin-left:20px;
+        color:#333;
+        font-weight:500;
+        transition:0.3s;
+    }
+
+    .nav-links a:hover{
+        color:#ff5e62;
+    }
+
+    /* ---------- REGISTER CARD ---------- */
+    .container{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:85vh;
     }
 
     .register-box {
@@ -82,48 +120,71 @@
     .login-link a:hover {
         text-decoration: underline;
     }
+
+    .message{
+        text-align:center;
+        color:green;
+        margin-bottom:10px;
+    }
+
 </style>
 </head>
 
 <body>
 
-<div class="register-box">
-<h3 style='color:green;'>${message}</h3>
-    <h2>Register</h2>
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">UserManagement</div>
+    <div class="nav-links">
+        <a href="Home.jsp">Home</a>
+        <a href="Login.jsp">Login</a>
+        <a href="Register.jsp">Register</a>
+        <a href="getallusers">All Users</a>
+    </div>
+</div>
 
-    <form action="do-RegistrationServlet" method="post">
+<!-- REGISTER FORM -->
+<div class="container">
+    <div class="register-box">
 
-        <label>Name:</label>
-        <input type="text" name="name" required>
+        <div class="message">${message}</div>
 
-        <label>Email:</label>
-        <input type="email" name="email" required>
+        <h2>Register</h2>
 
-        <label>Password:</label>
-        <input type="password" name="password" required>
+        <form action="do-RegistrationServlet" method="post">
 
-        <label>Gender:</label>
-        <div class="gender-box">
-            <input type="radio" name="gender" value="Male" required> Male
-            <input type="radio" name="gender" value="Female"> Female
-        </div>
+            <label>Name:</label>
+            <input type="text" name="name" required>
 
-        <label>City:</label>
-        <select name="city" required>
-            <option value="">-- Select City --</option>
-            <option>Mumbai</option>
-            <option>Pune</option>
-            <option>Chennai</option>
-        </select>
+            <label>Email:</label>
+            <input type="email" name="email" required>
 
-        <input type="submit" value="Register" class="btn">
+            <label>Password:</label>
+            <input type="password" name="password" required>
 
-        <div class="login-link">
-            Already have an account?
-            <a href="Login.html">Login</a>
-        </div>
+            <label>Gender:</label>
+            <div class="gender-box">
+                <input type="radio" name="gender" value="Male" required> Male
+                <input type="radio" name="gender" value="Female"> Female
+            </div>
 
-    </form>
+            <label>City:</label>
+            <select name="city" required>
+                <option value="">-- Select City --</option>
+                <option>Mumbai</option>
+                <option>Pune</option>
+                <option>Chennai</option>
+            </select>
+
+            <input type="submit" value="Register" class="btn">
+
+            <div class="login-link">
+                Already have an account?
+                <a href="Login.jsp">Login</a>
+            </div>
+
+        </form>
+    </div>
 </div>
 
 </body>
