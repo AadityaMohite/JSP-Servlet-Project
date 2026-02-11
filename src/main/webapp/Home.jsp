@@ -158,6 +158,13 @@ body{
         <p>View all registered users in the system.</p>
         <a href="getallusers">View Users</a>
     </div>
+    
+    <div class="card">
+    <h3>Get Male Users</h3>
+    <p>View all male registered users in the system.</p>
+    <a href="getMaleuser?gender=Male">View users</a>
+
+    </div>
 
 </div>
 
