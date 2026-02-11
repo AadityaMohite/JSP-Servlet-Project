@@ -35,5 +35,9 @@ public class Userservice {
 		ArrayList<User> users = dao.getMaleusers( gender);
 		return users;
 	}
+	public ArrayList<User> getFemaleusers(String gender){
+		ArrayList<User> users = dao.getMaleusers( gender);
+		return users;
+	}
 	
 }

@@ -165,6 +165,12 @@ body{
     <a href="getMaleuser?gender=Male">View users</a>
 
     </div>
+<div class="card">
+    <h3>Get Female Users</h3>
+    <p>View all Female registered users in the system.</p>
+    <a href="getFemaleuser?gender=Female">View users</a>
+
+    </div>
 
 </div>
 

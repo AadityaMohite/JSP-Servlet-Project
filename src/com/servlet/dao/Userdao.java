@@ -130,6 +130,41 @@ public class Userdao {
 			return users;
 		}
 		
+		public ArrayList<User> getFemaleuser(String gender) {
+			PreparedStatement ps = null;
+			ResultSet rs = null;
+			ArrayList<User> users = new ArrayList<User>();
+			try {
+				
+				ps = con.prepareStatement("Select * from user where gender=?");
+				ps.setString(1, gender);
+				
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				String password = rs.getString("password");
+				String gender2 = rs.getString("gender");
+				String city = rs.getString("city");
+				
+				User user = new User(name,email,password,gender2,city);
+				users.add(user);
+							
+			}
+				
+				
+				
+				
+				
+				
+			}catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
+			
+			return users;
+		}
+		
 	
 	
 	
